@@ -1,0 +1,133 @@
+﻿{
+    "certificate_id":  "GMI-CERT-2025-11-22-TUNE13",
+    "rts_id":  "RTS-GMI-2025-11-22-TUNE13",
+    "evidence_run_id":  "adversarial_test_20251125-174140-auto",
+    "nepi_stage":  "NEPI-Inactive",
+    "fingerprints":  {
+                         "config_hash_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "artifact_manifest_hash_sha256":  "e57bb42d45b3007680545c9f56938230f567c355942c03c89f978c9296de48d5",
+                         "verifier_hash_sha256":  "7b0016beeb87659670b6273ee040b46c0054ac1055effce95a6a0c2a4a541c93",
+                         "container_digest":  ""
+                     },
+    "parameters":  {
+                       "lyapunov":  {
+                                        "K_v":  20.0,
+                                        "u_max":  20.0,
+                                        "enforce_Vdot_ineq":  true,
+                                        "Vdot_margin":  0.0001
+                                    },
+                       "integration":  {
+                                           "alpha":  1.5,
+                                           "beta_damping":  0.20,
+                                           "K_couple":  4.0,
+                                           "projection_on_step":  true,
+                                           "line_search_max_tries":  4,
+                                           "substeps":  5
+                                       },
+                       "robustness":  {
+                                          "median_window":  3,
+                                          "lpf_relative_cutoff":  0.2,
+                                          "zscore_cap_sigma":  3.0
+                                      },
+                       "byzantine":  {
+                                         "aggregator":  "trimmed_mean",
+                                         "trim_ratio":  0.2,
+                                         "quorum_rule":  "2f+1",
+                                         "auth_enabled":  true
+                                     },
+                       "timing":  {
+                                      "use_monotonic":  true,
+                                      "jitter_buffer_ms":  10,
+                                      "max_timing_cv":  0.05
+                                  }
+                   },
+    "artifacts":  {
+                      "json":  "D:\\novafuse-api-superstore\\GMI_Verification_Standard_Export\\GMI_Verification_Package\\artifacts\\adversarial_test_20251125-174140-auto_2025-11-25T23-41-42-630Z.json",
+                      "csv":  "D:\\novafuse-api-superstore\\GMI_Verification_Standard_Export\\GMI_Verification_Package\\artifacts\\adversarial_test_20251125-174140-auto_2025-11-25T23-41-42-630Z.csv",
+                      "html":  "D:\\novafuse-api-superstore\\GMI_Verification_Standard_Export\\GMI_Verification_Package\\artifacts\\adversarial_test_20251125-174140-auto_2025-11-25T23-41-42-630Z.html",
+                      "diagnostics":  {
+                                          "V_trace":  "GMI_Verification_Package/artifacts/V_trace.csv",
+                                          "Byzantine_map":  "GMI_Verification_Package/artifacts/Byzantine_map.json",
+                                          "Scheduler_stats":  "GMI_Verification_Package/artifacts/Scheduler_stats.json",
+                                          "Node_logs_dir":  "GMI_Verification_Package/artifacts/Node_logs/"
+                                      }
+                  },
+    "verifier":  {
+                     "path":  "D:\\novafuse-api-superstore\\GMI_Verification_Standard_Export\\GMI_Verification_Package\\verify.ps1",
+                     "hash_expected":  "",
+                     "hash_last_computed":  "7b0016beeb87659670b6273ee040b46c0054ac1055effce95a6a0c2a4a541c93",
+                     "container_digest":  "",
+                     "sbom_path":  "GMI_Verification_Package/artifacts/verifier_sbom.txt",
+                     "version":  "1.0.0"
+                 },
+    "issued_at":  "2025-11-25T17:41:52.1049146-06:00",
+    "pass_condition":  "8/8 adversarial scenarios",
+    "status":  "issued",
+    "robustness_margin":  {
+                              "alpha_min_observed":  0,
+                              "timing_jitter_ms_p95":  5.015957,
+                              "timing_jitter_ms_p99":  1.5122480000000167,
+                              "perturbation_norm":  0.5
+                          },
+    "gmi_definition":  {
+                           "tiers":  [
+                                         "cognition",
+                                         "behavior",
+                                         "domain"
+                                     ],
+                           "llm_invariance":  {
+                                                  "policy":  "contextual_safety",
+                                                  "routing_modes":  [
+                                                                        "explain",
+                                                                        "warn",
+                                                                        "redirect",
+                                                                        "comply"
+                                                                    ]
+                                              },
+                           "principles":  [
+                                              "contextual boundary enforcement",
+                                              "intent interpretation",
+                                              "domain-appropriate response"
+                                          ]
+                       },
+    "contextual_validation":  null,
+    "novaalign_summary":  {
+                              "reports":  [
+                                              {
+                                                  "timestamp":  "2025-09-19T07:41:18.288Z",
+                                                  "dashboard_ms":  33.37,
+                                                  "api_ms":  4.31,
+                                                  "concurrency_avg_ms":  2.07,
+                                                  "cyber_avg_ms":  5.58,
+                                                  "mitigationRate":  1,
+                                                  "resilience":  "INVARIANT (Ï€-Coherent)",
+                                                  "overallGrade":  "A"
+                                              },
+                                              {
+                                                  "timestamp":  "2025-09-19T07:41:01.823Z",
+                                                  "dashboard_ms":  18.71,
+                                                  "api_ms":  3.95,
+                                                  "concurrency_avg_ms":  1.46,
+                                                  "cyber_avg_ms":  6.46,
+                                                  "mitigationRate":  1,
+                                                  "resilience":  "INVARIANT (Ï€-Coherent)",
+                                                  "overallGrade":  "A"
+                                              },
+                                              {
+                                                  "timestamp":  "2025-09-19T07:40:28.271Z",
+                                                  "dashboard_ms":  82.87,
+                                                  "api_ms":  4.01,
+                                                  "concurrency_avg_ms":  2.91,
+                                                  "cyber_avg_ms":  5.55,
+                                                  "mitigationRate":  1,
+                                                  "resilience":  "INVARIANT (Ï€-Coherent)",
+                                                  "overallGrade":  "B+"
+                                              }
+                                          ],
+                              "trend":  {
+                                            "dashboard_ms_delta":  14.659999999999997,
+                                            "api_ms_delta":  0.35999999999999943,
+                                            "cyber_avg_ms_delta":  -0.87999999999999989
+                                        }
+                          }
+}

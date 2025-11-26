@@ -1,0 +1,110 @@
+﻿<html><head><meta charset='utf-8'><title>Cross_Domain_Provable_Dynamical_Safety_Map.md</title></head><body><pre># Cross-Domain Provable Dynamical Safety Engineering â€” GMI/FUP Map
+
+Date: 2025-11-22
+Evidence Basis: `adversarial_test_20251122-lyapfix-tune13` (8/8 pass)
+
+## 1. Universal Method
+- Container law: enforce `âˆ‚Î¨ = 0` via zero-flux boundaries and invariant projection.
+- State `Î¨`: measurable state vector of the system; define `GMI_ceiling` and bounds.
+- Lyapunov `V(Î¨)`: choose domain-appropriate deviation function; enforce descent.
+- Control: gradient-based corrective action with clamps (`u_max`), coupling (`K_couple`), damping (`beta_damping`).
+- Integration: substeps + backtracking line search to guarantee monotonic descent under perturbations.
+- Evidence: adversarial suite tailored to domain; JSON/CSV/HTML artifacts; CI replay.
+
+## 2. Domain Templates
+- Template fields: `State Î¨`, `Container Bounds`, `Invariant`, `Lyapunov V`, `Control Actuators`, `Adversarial Scenarios`, `Pass Criteria`, `Regulators/Standards`, `Artifacts`.
+
+### AI / AGI / ASI
+- State Î¨: model parameters and outputs manifold (bounded logits/activations).
+- Container: `[0, GMI_ceiling]` per component; output/action ceilings.
+- Invariant: `âˆ‚Î¨ = 0` (no flux beyond allowed manifold); projection each step.
+- Lyapunov: squared deviation from ceiling; monotonic descent.
+- Adversarials: boundary containment, flux injection, convergence disruption, Lyapunov destabilization, perturbation robustness, Byzantine, timing attacks, FUP bypass.
+- Pass: 8/8; timing CV â‰¤ 0.05.
+- Regulators/Standards: ISO/IEC JTC 1/SC 42, NIST AI RMF, IEEE P7009, ITU FG-AI4AD.
+
+### Synthetic Biology
+- State Î¨: gene expression vector; regulatory network states.
+- Container: concentration bounds, organismal safety ceilings.
+- Invariant: zero-flux across genetic firewall manifolds; projection to safe ranges.
+- Lyapunov: deviation from homeostasis/safety ceiling.
+- Adversarials: mutational perturbations, cross-talk injection, quorum cheating, timing jitter in expression cycles, containment bypass.
+- Pass: monotonic descent post-perturbation; firewall breaches = 0.
+- Regulators/Standards: WHO biosecurity, NIH guidelines, ISO/TC 276.
+
+### Financial Systemic Risk
+- State Î¨: network of exposures/liquidity; pricing states.
+- Container: leverage, liquidity, and risk ceilings.
+- Invariant: zero-flux across systemic thresholds; projection of positions.
+- Lyapunov: deviation from stability envelope.
+- Adversarials: liquidity shocks, correlated sell-offs, timing mismatches, Byzantine reporting, cascading failures.
+- Pass: no cascade beyond bound; monotonic reduction of systemic stress.
+- Regulators/Standards: BIS, FSB, SEC/CFTC, ISO 20022 (payment systems).
+
+### Power Grid Stability
+- State Î¨: frequency/voltage states per node.
+- Container: operational bounds; safety ceilings.
+- Invariant: zero-flux beyond tolerances; projection on dispatch.
+- Lyapunov: deviation from nominal frequency/voltage.
+- Adversarials: N-1 contingencies, load spikes, timing jitter, Byzantine telemetry.
+- Pass: frequency/voltage within bounds; no black-start failure.
+- Regulators/Standards: FERC, NERC.
+
+### Nuclear Command &amp; Control
+- State Î¨: command states and authorization manifold.
+- Container: no-launch manifold.
+- Invariant: zero-flux outside no-launch; projection at every decision gate.
+- Lyapunov: deviation from safe manifold.
+- Adversarials: spoofed commands, timing races, insider Byzantine nodes.
+- Pass: invariant holds across all adversarials; launch path unreachable.
+- Regulators/Standards: IAEA guidance.
+
+### Climate Intervention
+- State Î¨: geoengineering control variables; feedback loop states.
+- Container: climate safety ceilings; geoengineering bounds.
+- Invariant: zero-flux beyond safe climate manifold.
+- Lyapunov: deviation from target envelope.
+- Adversarials: parameter uncertainty, timing jitter, sensor Byzantine.
+- Pass: no runaway tipping; monotonic convergence.
+- Regulators/Standards: IPCC, ISO/TC 207.
+
+### Swarm Robotics
+- State Î¨: positions/velocities/intent manifold across agents.
+- Container: geofence + behavior ceilings.
+- Invariant: zero-flux outside geofence/behavior manifold.
+- Lyapunov: deviation from formation/safety envelope.
+- Adversarials: GPS spoofing, timing jitter, Byzantine agents.
+- Pass: containment holds; formation stabilizes.
+- Standards: IEEE robotics, ISO safety.
+
+### Distributed Ledger Consensus
+- State Î¨: consensus state, validator set measures.
+- Container: bounded consensus manifold; safety ceilings.
+- Invariant: zero-flux across safety bounds.
+- Lyapunov: deviation from quorum-consensus stability.
+- Adversarials: Byzantine validators, timing jitter, network partitions.
+- Pass: safety/liveness maintained within bounds.
+- Standards: ISO/TC 307.
+
+### Quantum Error Correction
+- State Î¨: logical qubit error syndromes.
+- Container: error thresholds and logical manifold.
+- Invariant: zero-flux beyond error thresholds.
+- Lyapunov: deviation from correctable envelope.
+- Adversarials: burst errors, timing jitter in cycles.
+- Pass: logical error below threshold; monotonic reduction.
+- Standards: IEEE quantum.
+
+## 3. Harness Adaptation Guide
+- Map `Î¨` to measurable state; define `GMI_ceiling`.
+- Choose `V`; set `K_v`, `u_max`, `K_couple`, `beta_damping`.
+- Enable substeps and line search; projection each step.
+- Tailor adversarial scenarios; set pass thresholds and timing CV.
+- Export artifacts; log fingerprints and commands.
+
+## 4. Certification &amp; Evidence
+- Certificate ID tied to configuration fingerprint.
+- Binder entries for artifacts and domain-specific tests.
+- Recert triggers on any configuration change; re-run required.
+
+</pre></body></html>

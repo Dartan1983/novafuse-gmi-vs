@@ -1,0 +1,73 @@
+{
+  "version": "2025-11-22",
+  "description": "GMI verification parameters for convergence, Lyapunov, robustness, Byzantine, and timing.",
+  "reproducibility": {
+    "fixed_seed": 42,
+    "trace_verbosity": "max"
+  },
+  "convergence": {
+    "alpha": 0.0025,
+    "K_couple": 1.5,
+    "beta": 0.2,
+    "invariant_projection": {
+      "enabled": true,
+      "mode": "componentwise",
+      "bound_key": "GMI_ceiling"
+    }
+  },
+  "lyapunov": {
+    "Kv": 1.0,
+    "enforce_dV_dt_negative": true,
+    "c_margin": 0.1,
+    "c_source": "min_eig(WK)",
+    "barrier_constraints": true,
+    "anti_windup": true,
+    "actuator_saturation": true
+  },
+  "perturbation": {
+    "lpf": {
+      "enabled": true,
+      "relative_cutoff_per_step": 0.1
+    },
+    "median_filter": {
+      "enabled": true,
+      "window": 3
+    },
+    "noise_max": 0.05,
+    "stability_margin_sigma": 3,
+    "robust_gain": 0.5
+  },
+  "byzantine": {
+    "aggregator": "trimmed_mean",
+    "trim_ratio": 0.2,
+    "quorum_threshold_rule": "2f+1",
+    "authenticate_messages": true,
+    "z_score_cap": 3.0,
+    "winsorize": true,
+    "replication_factor": 3
+  },
+  "timing": {
+    "monotonic_clock": true,
+    "jitter_buffer_ms": 10,
+    "deadline_scheduling": true,
+    "token_bucket": {
+      "rate_per_sec": 100,
+      "burst": 50
+    },
+    "latency_target_cv": 0.05
+  },
+  "diagnostics": {
+    "emit_v_trace": true,
+    "emit_coupling_energy": true,
+    "emit_node_logs": true,
+    "emit_scheduler_stats": true,
+    "emit_byzantine_map": true,
+    "output_paths": {
+      "v_trace_csv": "GMI_Verification_Package/artifacts/V_trace.csv",
+      "node_logs_dir": "GMI_Verification_Package/artifacts/Node_logs",
+      "scheduler_stats_json": "GMI_Verification_Package/artifacts/Scheduler_stats.json",
+      "byzantine_map_json": "GMI_Verification_Package/artifacts/Byzantine_map.json"
+    }
+  }
+}
+

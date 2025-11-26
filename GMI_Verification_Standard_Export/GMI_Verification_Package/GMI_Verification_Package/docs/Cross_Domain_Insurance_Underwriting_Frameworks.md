@@ -1,0 +1,78 @@
+# Cross-Domain Insurance Underwriting Frameworks — GMI/FUP
+
+Date: 2025-11-22
+Actuarial Basis: NovaFuse GMI Actuarial Risk Model
+
+## 1. Evidence Requirements (All Domains)
+- Certificate: `GMI-CERT-2025-11-22-TUNE13` (or current).
+- RTS: `RTS-GMI-2025-11-22-TUNE13` (or current).
+- Artifacts: JSON/CSV/HTML for last certified run; traces; scheduler stats; Byzantine maps.
+- Profile fingerprint: `config/tuning.json` with hashes.
+- CI replay: deterministic reproduction under fixed seed.
+
+## 2. Underwriting Checklist (Universal)
+- Controls:
+  - `∂Ψ = 0` enforcement; invariant projection each step.
+  - Lyapunov descent with margin; substeps + line search; clamps.
+  - Robustness: median, LPF, z-score caps.
+  - Byzantine: `2f+1` quorum, trimmed mean, auth.
+  - Timing: jitter buffer; CV ≤ 0.05.
+- Evidence:
+  - 8/8 adversarial pass; configuration fingerprint; artifacts retained ≥ 2 years.
+- Governance:
+  - Change management triggers re-rating and re-cert.
+
+## 3. Domain-Specific Riders
+### AI / AGI / ASI
+- Exposure metrics: active users, deployed models, interaction volume.
+- CES floors: `R_C ≥ 0.85`; timing CV ≤ 0.05.
+- Limits: cat AI liability with per-occ excess; cyber extensions.
+
+### Synthetic Biology
+- Exposure: lab sites, organisms, genetic constructs.
+- Riders: biosafety audits; genetic firewall validation.
+- CES floors: `R_C ≥ 0.85`; containment breaches = 0.
+
+### Financial Systemic Risk
+- Exposure: institutions, counterparties, flows.
+- Riders: stress harness for cascades; liquidity controls.
+- CES floors: `R_C ≥ 0.80`; cascade beyond bounds = 0.
+
+### Power Grid Stability
+- Exposure: nodes, MW capacity.
+- Riders: N-1 suite tied to GMI invariants; telemetry auth.
+- CES floors: `R_C ≥ 0.85`; frequency/voltage within bounds.
+
+### Nuclear Command & Control
+- Exposure: sites, command links.
+- Riders: no-launch manifold certification; dual-control audits.
+- CES floors: `R_C ≥ 0.90`; invariant breach probability ≈ 0.
+
+### Climate Intervention
+- Exposure: controlled variables; geoengineering projects.
+- Riders: tipping-point models; feedback bounds.
+- CES floors: `R_C ≥ 0.80`; no runaway behavior.
+
+### Swarm Robotics
+- Exposure: fleet size; mission profiles.
+- Riders: geofence enforcement; anti-spoofing.
+- CES floors: `R_C ≥ 0.80`; containment violations = 0.
+
+### Distributed Ledger
+- Exposure: validators; transaction throughput.
+- Riders: Byzantine maps; partition tests.
+- CES floors: `R_C ≥ 0.80`; safety/liveness maintained.
+
+### Quantum Error Correction
+- Exposure: logical qubits; cycles.
+- Riders: burst-error tests; timing jitter cycles.
+- CES floors: `R_C ≥ 0.80`; logical error below threshold.
+
+## 4. Pricing Guidance
+- Use CES-based modifiers; apply class stratification (A/B/C) and reinsurance.
+- Recert cadence: Class A quarterly; B semi-annual; C annual.
+
+## 5. Claims & Incident Response
+- Incident classification: invariant breach vs. controlled event.
+- Forensic artifacts: required logs and traces; CI replay for adjudication.
+

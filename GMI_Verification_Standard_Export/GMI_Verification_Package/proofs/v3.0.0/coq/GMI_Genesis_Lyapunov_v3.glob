@@ -1,0 +1,129 @@
+DIGEST 41a6818dd59ff48d1c5eec61eb362205
+FNovaFuse.GMI_Genesis_Lyapunov_v3
+R409:423 Coq.Reals.Rbase <> <> lib
+R441:460 Coq.Reals.Rfunctions <> <> lib
+R478:496 Coq.Reals.Ranalysis <> <> lib
+R514:533 Coq.Reals.Rtrigo_def <> <> lib
+R551:566 Coq.Reals.R_sqrt <> <> lib
+R584:598 Coq.Reals.RIneq <> <> lib
+R616:636 Coq.Reals.Integration <> <> lib
+R654:680 Coq.Classes.RelationClasses <> <> lib
+R698:718 Coq.Classes.Morphisms <> <> lib
+R736:760 Coq.Classes.RelationPairs <> <> lib
+sec 793:795 <> GMI
+def 844:860 <> FUP_entropy_floor
+R864:864 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 888:898 <> GMI_ceiling
+R902:902 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R908:910 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R911:927 NovaFuse.GMI_Genesis_Lyapunov_v3 <> FUP_entropy_floor def
+var 1012:1013 GMI Ψ
+R1018:1021 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1017:1017 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1022:1022 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+var 1034:1038 GMI noise
+R1043:1046 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1042:1042 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1047:1047 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+var 1059:1059 GMI k
+R1063:1063 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+var 1098:1102 GMI k_pos
+R1107:1109 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R1106:1106 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.k var
+var 1124:1133 GMI Ψ_bounded
+binder 1144:1144 <> t:9
+R1148:1151 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R1156:1159 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R1152:1153 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R1155:1155 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:9 var
+R1152:1153 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R1155:1155 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:9 var
+var 1174:1186 GMI Ψ_continuous
+binder 1197:1197 <> t:12
+R1200:1212 Coq.Reals.Ranalysis1 <> continuity_pt def
+R1214:1215 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R1217:1217 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:12 var
+var 1231:1243 GMI noise_bounded
+binder 1254:1254 <> t:15
+R1271:1274 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R1257:1260 Coq.Reals.Rbasic_fun <> Rabs def
+R1263:1267 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.noise var
+R1269:1269 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:15 var
+R1275:1291 NovaFuse.GMI_Genesis_Lyapunov_v3 <> FUP_entropy_floor def
+def 1328:1342 <> alignment_error
+R1349:1349 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1345:1345 <> t:18
+R1354:1354 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1370:1372 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R1359:1369 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI_ceiling def
+R1373:1374 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R1376:1376 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:18 var
+def 1390:1395 <> dΨ_dt
+R1402:1402 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1398:1398 <> t:19
+R1407:1407 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1434:1436 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R1414:1416 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R1412:1412 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R1413:1413 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.k var
+R1417:1431 NovaFuse.GMI_Genesis_Lyapunov_v3 <> alignment_error def
+R1433:1433 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:19 var
+R1437:1441 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.noise var
+R1443:1443 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:19 var
+var 1524:1530 GMI Ψ_diff
+binder 1541:1541 <> t:20
+R1544:1559 Coq.Reals.Ranalysis1 <> derivable_pt_lim def
+R1561:1562 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R1564:1564 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:20 var
+R1567:1572 NovaFuse.GMI_Genesis_Lyapunov_v3 <> dΨ_dt def
+R1574:1574 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:20 var
+def 1625:1625 <> V
+R1632:1632 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1628:1628 <> t:23
+R1637:1637 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1642:1645 Coq.Reals.RIneq <> Rsqr def
+R1648:1662 NovaFuse.GMI_Genesis_Lyapunov_v3 <> alignment_error def
+R1664:1664 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:23 var
+prf 1675:1683 <> V_pos_def
+binder 1694:1694 <> t:24
+R1700:1703 Coq.Reals.Rdefinitions <> ::R_scope:x_'>='_x not
+R1697:1697 NovaFuse.GMI_Genesis_Lyapunov_v3 <> V def
+R1699:1699 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:24 var
+prf 1772:1784 <> V_zero_iff_eq
+binder 1795:1795 <> t:25
+R1805:1809 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1801:1803 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1798:1798 NovaFuse.GMI_Genesis_Lyapunov_v3 <> V def
+R1800:1800 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:25 var
+R1814:1816 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1810:1811 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R1813:1813 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:25 var
+R1817:1827 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI_ceiling def
+prf 1967:1996 <> GMI_Genesis_Principle_Lyapunov
+R2023:2028 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2019:2021 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R2002:2018 NovaFuse.GMI_Genesis_Lyapunov_v3 <> FUP_entropy_floor def
+R2034:2039 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2030:2032 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R2029:2029 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.k var
+R2040:2040 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2086:2092 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2048:2048 <> t:26
+R2065:2068 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R2051:2054 Coq.Reals.Rbasic_fun <> Rabs def
+R2057:2061 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.noise var
+R2063:2063 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:26 var
+R2069:2085 NovaFuse.GMI_Genesis_Lyapunov_v3 <> FUP_entropy_floor def
+R2093:2099 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2102:2103 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 2100:2101 <> t0:27
+binder 2111:2111 <> t:28
+R2121:2124 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2115:2118 Coq.Reals.Rdefinitions <> ::R_scope:x_'>='_x not
+R2114:2114 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:28 var
+R2119:2120 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t0:27 var
+R2129:2131 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2125:2126 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI.Ψ var
+R2128:2128 NovaFuse.GMI_Genesis_Lyapunov_v3 <> t:28 var
+R2132:2142 NovaFuse.GMI_Genesis_Lyapunov_v3 <> GMI_ceiling def
+R2309:2311 NovaFuse.GMI_Genesis_Lyapunov_v3 GMI <> sec

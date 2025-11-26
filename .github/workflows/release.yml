@@ -1,0 +1,67 @@
+name: Release Certification & SBOM
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Start NovaCortex
+        shell: pwsh
+        run: |
+          $env:PORT='3010'
+          Start-Process -FilePath node -ArgumentList 'src\\novacortex\\server.js'
+          Start-Sleep -Seconds 5
+      - name: Run verifier to issue certificate
+        shell: pwsh
+        run: |
+          $env:NOVACORTEX_URL='http://localhost:3010'
+          ./GMI_Verification_Standard_Export/GMI_Verification_Package/verify.ps1 -IssueCertificate
+      - name: Locate latest certificate
+        id: cert
+        shell: pwsh
+        run: |
+          $certDir = 'GMI_Verification_Standard_Export/GMI_Verification_Package/certificates'
+          $latest = Get-ChildItem -Path $certDir -Filter 'GMI-CERT-*.json' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+          if (-not $latest) { Write-Error 'No certificate found' ; exit 1 }
+          echo "cert_path=$($latest.FullName)" >> $env:GITHUB_OUTPUT
+      - name: Generate SBOM
+        uses: anchore/syft-action@v0.17.0
+        with:
+          path: .
+          output: 'sbom.spdx.json'
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+      - name: Upload Certificate Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.cert.outputs.cert_path }}
+          asset_name: certificate-${{ github.ref_name }}.json
+          asset_content_type: application/json
+      - name: Upload SBOM Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: sbom.spdx.json
+          asset_name: sbom-${{ github.ref_name }}.spdx.json
+          asset_content_type: application/json

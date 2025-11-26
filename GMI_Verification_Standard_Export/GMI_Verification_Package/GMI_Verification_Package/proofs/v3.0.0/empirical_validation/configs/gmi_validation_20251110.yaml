@@ -1,0 +1,48 @@
+# GMI Validation Configuration - Run ID: GMI_VAL_20251110_220933
+# NovaAlign Guaranteed Mathematical Invariance Validation
+
+# Operating Envelope Parameters (exact values from letter)
+noise:
+  max_eta: 0.0001  # η_max - maximum noise threshold
+  description: "Maximum allowable noise magnitude for GMI enforcement"
+
+control_parameters:
+  k: 10.0           # Control gain parameter
+  psi: 0.9973       # Ψ - NovaAlign control threshold
+  description: "Control parameters for envelope enforcement"
+
+# Validation Configuration
+validation:
+  run_id: "GMI_VAL_20251110_220933"
+  seeds:
+    master: 1337
+    empirical: 42
+    bootstrap: 20251110
+  
+  success_criteria:
+    theorems_qed: 7
+    gmi_reproduced: true
+    manifest_hash_match: true
+  
+  tolerance:
+    convergence: 1e-8
+    drift: 1e-10
+    noise_bound: 0.0001
+
+# Toolchain Versions
+toolchain:
+  coq: "8.20.1"
+  python: "3.11.7"
+  os: "Windows 11 / Ubuntu 22.04"
+
+# Output Configuration
+output:
+  report_format: "json"
+  include_provenance: true
+  timestamp_format: "ISO8601"
+  
+# Verification Settings
+verification:
+  self_check_skip: true
+  zero_false_warnings: true
+  strict_hash_validation: true

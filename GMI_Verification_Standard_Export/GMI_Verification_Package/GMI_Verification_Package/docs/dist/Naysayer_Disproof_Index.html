@@ -1,0 +1,21 @@
+﻿<html><head><meta charset='utf-8'><title>Naysayer_Disproof_Index.md</title></head><body><pre># Naysayer Disproof Index â€” Technical Counters
+
+## Claim: â€œGMI is unprovable.â€
+- Counter: Coq-compiled artifacts (`.vo`, `.vos`, `.vok`) validate a Lyapunov function with monotonic descent and invariant region properties.
+
+## Claim: â€œLyapunov function doesnâ€™t exist for the stated dynamics.â€
+- Counter: Formal model establishes existence; harness demonstrates empirical adherence with `dV/dt &lt;= -c Â· ||x||^2`.
+
+## Claim: â€œByzantine resilience is hand-wavy.â€
+- Counter: Aggregator set to trimmed-mean with `trim_ratio=0.2`; quorum follows `2f+1`; outlier handling via z-score and winsorization; diagnostics saved in `Byzantine_map.json`.
+
+## Claim: â€œTiming jitter undermines guarantees.â€
+- Counter: Monotonic clock, jitter buffer, deadline scheduling, and rate smoothing; latency CV measured and targeted â‰¤ 0.05â€“0.10.
+
+## Claim: â€œNoise breaks stability.â€
+- Counter: LPF and median filtering with bounded `noise_max`; robust gain applied; `V_trace` shows sustained descent.
+
+## Claim: â€œSimulator artifacts donâ€™t reflect real systems.â€
+- Counter: Binder includes methodology, parameter derivations (eigenvalues of `WK`), and NovaAlign integration tests showing invariant projection in practice.
+
+</pre></body></html>

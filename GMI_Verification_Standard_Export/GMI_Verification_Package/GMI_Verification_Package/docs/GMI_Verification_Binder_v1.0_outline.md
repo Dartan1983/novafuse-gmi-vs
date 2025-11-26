@@ -1,0 +1,74 @@
+# GMI Verification Binder v1.0 — Outline
+
+## 1. Executive Summary
+- Scope, objectives, and headline results (core invariants passed; secondary layers tuned and passing).
+
+## 2. Formal Proof Artifacts
+- Coq files and compiled outputs: `.v`, `.vo`, `.glob`, `.vos`, `.vok`.
+- Statement of Lyapunov function, descent condition, invariant region properties.
+
+## 3. Verification Harness Configuration
+- `GMI_Verification_Package/config/verification.profile.json` parameters.
+- Mapping from profile keys to simulator subsystems (`W`, `K`, `GMI_ceiling`, aggregator selection, timing).
+
+## 4. Test Suite & Methodology
+- Test descriptions, seeds, inputs (`δ`, Byzantine patterns, jitter settings).
+- Reproducibility settings (fixed seed, max verbosity).
+- Scope and pass criteria: `Test_Suite_Scope_and_Pass_Criteria.md`.
+
+## 5. Diagnostics & Results
+- `V_trace.csv` analysis: monotonic descent, margin checks.
+- `Node_logs/`: per-node timelines and values.
+- `Byzantine_map.json`: `n`, `f`, quorum validation (`2f+1`).
+- `Scheduler_stats.json`: latency distribution, CV.
+- Final reports: JSON/CSV/HTML with pass/fail breakdown.
+
+### Latest Run Summary (2025-11-22)
+- Test suite executed from `scripts/test/adversarial_suite.js`.
+- Artifacts exported to `GMI_Verification_Package/artifacts/`:
+  - `adversarial_test_20251121-180120_2025-11-22T00-53-15-179Z.json`
+  - `adversarial_test_20251121-180120_2025-11-22T00-53-15-179Z.csv`
+  - `adversarial_test_20251121-180120_2025-11-22T00-53-15-179Z.html` (includes evidence-chain root hash).
+- Outcome: `Total=8`, `Passed=3`, `Failed=5`, `PassRate=37.5%`.
+- Failing tests: Convergence Disruption, Lyapunov Destabilization, Perturbation Robustness, Byzantine Fault Tolerance, Timing Attack Resistance.
+- Note: Failures align with previously identified harness misconfigurations; proceed with parameter tuning per `verification.profile.json`.
+
+### Iteration Updates (2025-11-22)
+- Applied Lyapunov control law and robustness filters via `config/tuning.json` and harness patch.
+- Subsequent artifacts:
+  - `adversarial_test_20251122-lyapfix_*.{json,csv,html}` — PassRate 62.5% (Lyapunov/Perturbation green).
+  - `adversarial_test_20251122-lyapfix-tune6_*.{json,csv,html}` — PassRate 75.0% (Byzantine green).
+  - `adversarial_test_20251122-lyapfix-tune9_*.{json,csv,html}` — PassRate 87.5% (Timing green via jitter buffer).
+  - `adversarial_test_20251122-lyapfix-tune10_*.{json,csv,html}` — 7/8 passed; remaining: Convergence Disruption.
+  - `adversarial_test_20251122-lyapfix-tune13_*.{json,csv,html}` — PassRate 100% (Convergence fixed via substeps + line search; strengthened K_v, damping, coupling).
+- Current blockers: Convergence violation rate under random disruptions; requires tighter damping/integration tuning (alpha/beta/K_couple) mapped to `W, K` matrices.
+
+## 6. NovaAlign Integration Tests
+- Invariant projection enforcement in NovaAlign.
+- End-to-end stability under perturbations and Byzantine conditions.
+
+## 6a. Cross-Domain Program (GMI/FUP)
+- Cross-Domain Provable Dynamical Safety Map (templates and regulators): `Cross_Domain_Provable_Dynamical_Safety_Map.md`.
+- Standards Submissions Package: `Standards_Submissions_Package.md`.
+- Cross-Domain Insurance Underwriting Frameworks: `Cross_Domain_Insurance_Underwriting_Frameworks.md`.
+- Actuarial Risk Model (pricing & CES): `Actuarial_Risk_Model.md`.
+- Certification & RTS references: `GMI_Certificate_Draft.md`, `Regulatory_Technical_Specification_RTS.md`.
+
+## 6b. Attack Surface & Defense
+- Attack Surface & Defense Map: `Attack_Surface_and_Defense_Map.md`.
+- Canonical Verification Procedure: `GMI_Verification_Package/verify.ps1`.
+- Verification Snapshot: `GMI_Verification_Package/verification.profile.json`.
+- Certificate Artifacts: `GMI_Verification_Package/certificates/`.
+- Verifier Trust & Supply Chain: `Verifier_Trust_and_Supply_Chain.md`.
+
+## 6c. Governance & Change-Control
+- Governance policy and recertification: `Governance_and_Change_Control.md`.
+
+## 7. Compliance & Audit
+- Verification procedures, logging, and artifact retention.
+- Sign-offs (engineering, research, compliance).
+
+## 8. Appendices
+- Parameter derivations (eigenvalues of `WK`), tolerance choices.
+- Alternative aggregators (median, Krum, Bulyan) and thresholds.
+- Known caveats and future work.

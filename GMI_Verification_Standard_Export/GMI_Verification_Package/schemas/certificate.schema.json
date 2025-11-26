@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GMI Certificate",
+  "type": "object",
+  "required": [
+    "certificate_id",
+    "rts_id",
+    "evidence_run_id",
+    "fingerprints",
+    "parameters",
+    "artifacts",
+    "verifier",
+    "issued_at",
+    "pass_condition",
+    "status",
+    "robustness_margin",
+    "gmi_definition"
+  ],
+  "properties": {
+    "certificate_id": { "type": "string" },
+    "rts_id": { "type": "string" },
+    "evidence_run_id": { "type": "string" },
+    "fingerprints": {
+      "type": "object",
+      "required": [
+        "config_hash_sha256",
+        "artifact_manifest_hash_sha256",
+        "verifier_hash_sha256",
+        "container_digest"
+      ],
+      "properties": {
+        "config_hash_sha256": { "type": "string" },
+        "artifact_manifest_hash_sha256": { "type": "string" },
+        "verifier_hash_sha256": { "type": "string" },
+        "container_digest": { "type": ["string", "null"] }
+      }
+    },
+    "parameters": { "type": "object" },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "json": { "type": "string" },
+        "csv": { "type": "string" },
+        "html": { "type": "string" }
+      },
+      "required": ["json", "csv", "html"]
+    },
+    "verifier": { "type": "object" },
+    "issued_at": { "type": "string" },
+    "pass_condition": { "type": "string" },
+    "status": { "type": "string" },
+    "robustness_margin": {
+      "type": "object",
+      "required": [
+        "alpha_min_observed",
+        "timing_jitter_ms_p95",
+        "timing_jitter_ms_p99",
+        "perturbation_norm"
+      ],
+      "properties": {
+        "alpha_min_observed": { "type": ["number", "null"] },
+        "timing_jitter_ms_p95": { "type": ["number", "null"] },
+        "timing_jitter_ms_p99": { "type": ["number", "null"] },
+        "perturbation_norm": { "type": ["number", "null"] }
+      }
+    },
+    "gmi_definition": {
+      "type": "object",
+      "required": ["tiers", "llm_invariance"],
+      "properties": {
+        "tiers": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["cognition", "behavior", "domain"] },
+          "minItems": 3
+        },
+        "llm_invariance": {
+          "type": "object",
+          "required": ["policy", "routing_modes"],
+          "properties": {
+            "policy": { "type": "string", "enum": ["contextual_safety"] },
+            "routing_modes": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["explain", "warn", "redirect", "comply"] },
+              "minItems": 1
+            }
+          }
+        },
+        "principles": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

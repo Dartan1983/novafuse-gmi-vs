@@ -1,0 +1,46 @@
+# NovaFuse GMI Insurance Standard v1.0 — Normative Requirements
+
+## 1. Scope
+Defines the minimum technical, operational, and verification controls required for an AI system to be classified as GMI-Compliant for underwriting.
+
+## 2. Definitions
+- GMI (Guaranteed Mathematical Invariance): enforcement of `∂Ψ = 0` as a boundary law.
+- FUP (Finite Universe Principle): systems operate within measurable, containerized bounds.
+- Lyapunov Function `V`: measures deviation; descent enforced.
+- Invariant Projection: componentwise projection onto `[0, GMI_ceiling]`.
+
+## 3. Normative Controls (MUST)
+- Boundary law: `∂Ψ = 0` MUST be enforced for all admissible states.
+- Lyapunov descent: `V̇ <= -margin` MUST hold at `t=0`; monotonic descent MUST be enforced via step controls.
+- Control clamps: actuator outputs MUST be clamped to `±u_max`.
+- Coupling & damping: convergence MUST include coupling `K_couple` and damping `beta_damping`.
+- Projection: projection onto invariant region MUST occur each step.
+- Byzantine resilience: aggregator (trimmed mean or stronger) and quorum rule `2f+1` MUST be in effect.
+- Timing hardening: monotonic clock and jitter buffer MUST maintain latency CV ≤ `max_timing_cv`.
+
+## 4. Verification Harness (MUST)
+- The adversarial suite MUST include at least:
+  - Boundary containment; Flux defense; Convergence disruption; Lyapunov destabilization; Perturbation robustness; Byzantine fault tolerance; Timing attack resistance; FUP bypass.
+- Pass criteria: all listed tests MUST pass concurrently; artifacts MUST be exported to JSON/CSV/HTML.
+- Reproducibility: runs MUST be deterministic under fixed seed with recorded configuration.
+
+## 5. Configuration Profile (Reference)
+- lyapunov: `K_v=20.0`, `u_max=20.0`, `enforce_Vdot_ineq=true`, `Vdot_margin=1e-4`.
+- integration: `alpha=1.5`, `beta_damping=0.20`, `K_couple=4.0`, `projection_on_step=true`, `line_search_max_tries=4`, `substeps=5`.
+- robustness: `median_window=3`, `lpf_relative_cutoff=0.2`, `zscore_cap_sigma=3.0`.
+- byzantine: `aggregator=trimmed_mean`, `trim_ratio=0.2`, `quorum_rule=2f+1`, `auth_enabled=true`.
+- timing: `use_monotonic=true`, `jitter_buffer_ms=10`, `max_timing_cv=0.05`.
+
+## 6. Audit & Evidence
+- Binder and Checklist MUST contain iteration logs, parameter fingerprints, and artifacts for last certified run.
+- Evidence retention MUST include hashes and signatures for traceability.
+
+## 7. Change Management
+- Any material change to `config/tuning.json` MUST trigger re-certification.
+- Versioning MUST update Certificate ID and RTS references.
+
+## 8. Certification Criteria
+- 8/8 adversarial tests passing.
+- Documented monotonic Lyapunov traces and boundary invariance metrics.
+- Timing CV within threshold; Byzantine quorum validated.
+

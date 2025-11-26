@@ -1,0 +1,5 @@
+﻿verifier.path=D:\novafuse-api-superstore\GMI_Verification_Standard_Export\GMI_Verification_Package\verify.ps1
+verifier.hash_sha256=d5d7e0f02f894f5794cf7c6c2e72a1e9e1711e3525f62d2b803bbfbcc731757a
+profile.path=GMI_Verification_Package/verification.profile.json
+adversarial_suite.path=(resolved at runtime)
+container.digest=

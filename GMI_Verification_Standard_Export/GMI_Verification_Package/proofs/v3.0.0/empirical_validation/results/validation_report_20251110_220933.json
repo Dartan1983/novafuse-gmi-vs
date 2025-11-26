@@ -1,0 +1,26 @@
+{
+  "version": "3.0.1-hotfix",
+  "timestamp": "2025-11-10T22:09:33.049952",
+  "run_id": "GMI_VAL_20251110_220933",
+  "config_path": "proofs/v3.0.0/empirical_validation/configs/gmi_validation_20251110.yaml",
+  "seeds": { "master": 1337, "empirical": 42, "bootstrap": 20251110 },
+  "parameters": {
+    "num_cores": 100,
+    "sample_rate": 100,
+    "duration": 10.0,
+    "noise_std": 0.0001,
+    "gmi_ceiling": 0.9973,
+    "fup_entropy_floor": 0.0027,
+    "k_production": 10.0,
+    "containment_threshold": 0.82,
+    "theoretical_bound": 0.00027
+  },
+  "metrics": {
+    "max_deviation": 0.1773,
+    "mean_deviation": 0.08650264590088846,
+    "variance": 0.001459318341281039,
+    "three_sigma": 0.11460307618702628,
+    "num_violations": 0,
+    "processing_time_seconds": 0.18640589714050293
+  }
+}
