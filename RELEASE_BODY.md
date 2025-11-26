@@ -31,3 +31,40 @@ Impact
 Repo
 - https://github.com/Dartan1983/novafuse-gmi-vs
 - Default branch: main; Tag: v1.0.1‑thanksgiving
+# GMI‑VS — The Verification Standard for Guaranteed Mathematical Invariance
+
+GMI — Guaranteed Mathematical Invariance — is a foundational principle:
+
+> Systems that claim to be aligned, safe, or trustworthy must first demonstrate mathematically that key invariants do not drift, degrade, or mutate as the system evolves.
+
+Safety must be provable, not assumed.
+
+## What GMI‑VS Actually Does
+GMI‑VS is a verification and compliance standard built on the GMI principle. It does not tune, influence, or run models.
+
+It outputs:
+- Mathematically checkable invariants
+- Compliance evidence
+- Schema‑validated certificates
+- Runtime safety signal validation
+- Chain‑of‑custody fingerprints (SHA‑256)
+- Independently auditable reports
+
+All without touching:
+- Model weights
+- Policies
+- Prompts
+- Production logic
+- Training data
+- System internals
+
+## Who GMI‑VS Is For
+- Researchers verifying claims
+- Developers certifying releases
+- Regulators enforcing minimum standards
+- Enterprises procuring safe AI
+- Anyone building cyber‑safety at scale
+
+Run one command. Watch the certificate appear — or watch it refuse, with clear reasons.
+
+GMI‑VS v1.0.1‑thanksgiving — November 26, 2025
