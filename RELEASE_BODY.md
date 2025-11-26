@@ -12,12 +12,12 @@ Changes
 - Verification engine: GMI_Verification_Standard_Export/GMI_Verification_Package/** and scripts/test/**.
 
 Artifacts (on tag)
-- certificate‑v1.0.1‑thanksgiving.json
 - sbom‑v1.0.1‑thanksgiving.spdx.json
+- certificate‑v1.0.1‑thanksgiving.json (published when verification succeeds)
 
 Verification
 - CI runs PowerShell verifier: `verify.ps1 -RunTests:$true -IssueCertificate:$true`.
-- Artifacts uploaded on successful certificate issuance.
+- Certificate uploads only on successful issuance; SBOM is always published.
 
 Security Recap
 - No admin rights; no privilege escalation.
