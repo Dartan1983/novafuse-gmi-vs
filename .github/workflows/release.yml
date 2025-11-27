@@ -47,6 +47,8 @@ jobs:
             echo "has_sbom=false" >> $env:GITHUB_OUTPUT
           }
       - name: Create GitHub Release
+        if: always()
+        continue-on-error: true
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -57,7 +59,8 @@ jobs:
           draft: false
           prerelease: false
       - name: Upload Certificate Asset
-        if: steps.cert.outputs.has_cert == 'true'
+        if: always() && steps.cert.outputs.has_cert == 'true'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,7 +70,8 @@ jobs:
           asset_name: certificate-${{ github.ref_name }}.json
           asset_content_type: application/json
       - name: Upload SBOM Asset
-        if: steps.sbom.outputs.has_sbom == 'true'
+        if: always() && steps.sbom.outputs.has_sbom == 'true'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
