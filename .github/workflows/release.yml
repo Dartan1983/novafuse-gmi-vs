@@ -32,6 +32,7 @@ jobs:
             echo "has_cert=false" >> $env:GITHUB_OUTPUT
           }
       - name: Generate SBOM
+        continue-on-error: true
         uses: anchore/syft-action@v0.17.0
         with:
           path: .
