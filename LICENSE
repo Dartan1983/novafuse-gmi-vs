@@ -1,0 +1,55 @@
+NovaFuse License Agreement
+========================
+
+Copyright (c) 2026 NovaFuse Technologies
+
+This license governs the use of NovaFuse Verification Systems (VS) family components,
+including NovaFuse-GMI-VS (Verification Standard) and NovaFuse-EPG-VS (Verification Suite).
+
+PERMISSIONS
+------------
+
+This license grants permission to:
+
+1. USE
+   - Use NovaFuse-GMI-VS for AI system verification
+   - Run adversarial test suites for mathematical invariance verification
+   - Generate GMI certificates for compliant systems
+   - Integrate with CI/CD pipelines for automated verification
+
+2. DISTRIBUTION
+   - Distribute verification results and certificates
+   - Include NovaFuse-GMI-VS in commercial AI safety solutions
+   - Reference NovaFuse-GMI-VS in academic and research contexts
+
+3. MODIFICATION
+   - Modify verification profiles for specific use cases
+   - Extend adversarial test scenarios
+   - Integrate with existing security frameworks
+
+CONDITIONS
+-----------
+
+1. COMPLIANCE
+   - All verifications must follow GMI mathematical invariants
+   - Certificates must reference NovaFuse-GMI-VS specification
+   - Integrity hashes must be preserved in evidence chains
+
+2. ATTRIBUTION
+   - NovaFuse-GMI-VS must be credited in all distributions
+   - Copyright notices must remain intact
+
+3. LIABILITY
+   - NovaFuse Technologies provides verification framework only
+   - Users are responsible for AI system implementation
+   - No warranty of fitness for particular purpose
+
+DISCLAIMER
+----------
+
+NovaFuse-GMI-VS is a verification standard, not a control system.
+It provides mathematical safety invariants and testing methodologies
+but does not modify, control, or access AI models themselves.
+
+For full license terms and compliance requirements, visit:
+https://github.com/Dartan1983/NovaFuse-GMI-VS
