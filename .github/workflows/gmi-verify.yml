@@ -11,6 +11,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     name: GMI Verification
+    timeout-minutes: 10
     
     steps:
     - name: Checkout code
@@ -24,14 +25,25 @@ jobs:
     - name: Run GMI Verification
       shell: bash
       run: |
+        set -e  # Exit on any error
         echo "Running GMI Verification on Ubuntu..."
-        # Create directories
-        mkdir -p GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts
-        mkdir -p GMI_Verification_Standard_Export/GMI_Verification_Package/certificates
         
-        # Run adversarial tests
+        # Create directories with error handling
+        mkdir -p GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts || {
+          echo "Failed to create artifacts directory"
+          exit 1
+        }
+        mkdir -p GMI_Verification_Standard_Export/GMI_Verification_Package/certificates || {
+          echo "Failed to create certificates directory"
+          exit 1
+        }
+        
+        # Run adversarial tests with timeout and retry logic
         echo "Running adversarial suite..."
-        node scripts/test/adversarial_suite.js GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts/adversarial_test_$(date +%Y%m%d-%H%M%S)-auto
+        timeout 300s node scripts/test/adversarial_suite.js GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts/adversarial_test_$(date +%Y%m%d-%H%M%S)-auto || {
+          echo "Adversarial tests failed or timed out"
+          exit 1
+        }
         
         # Create a simple certificate
         echo "Creating certificate..."
@@ -68,7 +80,7 @@ jobs:
         
     - name: Create Release
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         name: GMI-VS Release ${{ github.run_number }}
         tag_name: v${{ github.run_number }}
