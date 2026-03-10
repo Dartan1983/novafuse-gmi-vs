@@ -2,7 +2,7 @@
 
 ### Guaranteed Mathematical Invariance — Verification Standard
 
-[![Verification](https://github.com/Dartan1983/NovaFuse-GMI-VS/actions/workflows/gmi-verify.yml/badge.svg?branch=main)](https://github.com/Dartan1983/NovaFuse-GMI-VS/actions/workflows/gmi-verify.yml) [![License](https://img.shields.io/github/license/Dartan1983/NovaFuse-GMI-VS?color=blue)](LICENSE) [![Release](https://img.shields.io/github/v/release/Dartan1983/NovaFuse-GMI-VS?color=purple)](https://github.com/Dartan1983/NovaFuse-GMI-VS/releases)
+[![Verification](https://github.com/Dartan1983/NovaFuse-GMI-VS/actions/workflows/gmi-vs-verify-and-release.yml/badge.svg?branch=main)](https://github.com/Dartan1983/NovaFuse-GMI-VS/actions/workflows/gmi-vs-verify-and-release.yml) [![License](https://img.shields.io/github/license/Dartan1983/NovaFuse-GMI-VS?color=blue)](https://github.com/Dartan1983/NovaFuse-GMI-VS/blob/main/LICENSE) [![Release](https://img.shields.io/github/v/release/Dartan1983/NovaFuse-GMI-VS?color=purple)](https://github.com/Dartan1983/NovaFuse-GMI-VS/releases)
 
 **NovaFuse-GMI-VS** is the public **Verification Standard** for Guaranteed Mathematical Invariance (GMI).
 
