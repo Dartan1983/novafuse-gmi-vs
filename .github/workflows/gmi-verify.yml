@@ -1,0 +1,78 @@
+name: GMI-VS Verify and Release
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: GMI Verification
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Setup PowerShell
+      uses: azure/powershell@v1
+      with:
+        azPSVersion: 'latest'
+        inlineScript: |
+          Write-Host "PowerShell setup complete"
+          
+    - name: Run GMI Verification
+      shell: pwsh
+      run: |
+        Set-ExecutionPolicy Bypass -Scope Process -Force
+        & GMI_Verification_Standard_Export/GMI_Verification_Package/verify.ps1 -RunTests:$true -IssueCertificate:$true
+        
+    - name: Upload verification artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: gmi-verification-results
+        path: |
+          GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts/
+          GMI_Verification_Standard_Export/GMI_Verification_Package/certificates/
+        retention-days: 30
+        
+    - name: Create Release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        name: GMI-VS Release ${{ github.run_number }}
+        body: |
+          ## GMI-VS Verification Release
+          
+          **Run ID**: ${{ github.run_number }}
+          **Commit**: ${{ github.sha }}
+          **Timestamp**: ${{ github.event.head_commit.timestamp }}
+          
+          ### Verification Results
+          - ✅ GMI Verification completed successfully
+          - ✅ All adversarial tests passed
+          - ✅ Certificate generated
+          
+          ### Artifacts
+          - JSON results: `adversarial_test_*.json`
+          - CSV results: `adversarial_test_*.csv`
+          - HTML report: `adversarial_test_*.html`
+          - Certificate: `GMI-CERT-*.json`
+          
+          ---
+          *Generated automatically by GMI-VS verification workflow*
+        files: |
+          GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts/*
+          GMI_Verification_Standard_Export/GMI_Verification_Package/certificates/*
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
