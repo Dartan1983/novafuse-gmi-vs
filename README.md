@@ -2,6 +2,8 @@
 
 ### Guaranteed Mathematical Invariance — Verification Standard
 
+[![Verification](https://github.com/Dartan1983/NovaFuse-GMI-VS/actions/workflows/gmi-verify.yml/badge.svg?branch=main)](https://github.com/Dartan1983/NovaFuse-GMI-VS/actions) [![License](https://img.shields.io/github/license/Dartan1983/NovaFuse-GMI-VS?color=blue)](LICENSE) [![Latest Release](https://img.shields.io/github/v/release/Dartan1983/NovaFuse-GMI-VS?color=purple)](https://github.com/Dartan1983/NovaFuse-GMI-VS/releases)
+
 **NovaFuse-GMI-VS** is the public **Verification Standard** for Guaranteed Mathematical Invariance (GMI).
 
 It defines the minimum, non-negotiable mathematical safety invariants that an AI system must maintain in order to be considered cyber-safe.
