@@ -1,61 +1,79 @@
-# GMI-VS Safety & Integrity
+# GMI‑VS Safety and Integrity
 
-## 🔬 Verification Safety Framework
+## Verification Safety Framework
 
-**NovaFuse-GMI-VS** implements a comprehensive safety and integrity framework for Guaranteed Mathematical Invariance verification.
+**NovaFuse‑GMI‑VS** implements a formal safety and integrity framework for the verification of Guaranteed Mathematical Invariance.
 
-### 🛡️ Core Safety Principles
-
-1. **Mathematical Invariance**: All verification maintains deterministic mathematical properties
-2. **Cryptographic Integrity**: SHA256 hash verification for all components
-3. **Evidence Chain**: Complete audit trail with tamper-evidence
-4. **Non-Repudiation**: Cryptographically signed certificates
-5. **Temporal Consistency**: Timestamped verification results
-
-### 🔐 Security Controls
-
-- **Hash Verification**: Every script and output file includes SHA256 integrity checks
-- **SBOM Generation**: Software Bill of Materials for complete traceability
-- **Certificate Signing**: All certificates include cryptographic signatures
-- **Access Control**: Verification does not access, modify, or control AI models
-- **Data Privacy**: No training data inspection or prompt access
-
-### 📋 Compliance Standards
-
-GMI-VS adheres to:
-
-- **ISO/IEC 27001**: Information security management
-- **NIST SP 800-171**: Security and privacy controls
-- **Common Criteria**: EAL2+ equivalent verification framework
-- **SOC 2 Type III**: Cryptographic module security requirements
-
-### 🔍 Threat Model
-
-GMI-VS protects against:
-
-- **Boundary Violations**: Mathematical boundary enforcement
-- **Flux Injection Attacks**: State transition attack resistance
-- **Convergence Disruption**: Stability under perturbation
-- **Lyapunov Destabilization**: Control system stability verification
-- **FUP Bypass Attempts**: Functional Unification Protocol security
-- **Perturbation Robustness**: Input validation and filtering
-- **Byzantine Fault Tolerance**: Distributed system resilience
-- **Timing Attack Resistance**: Side-channel attack mitigation
-
-### 📊 Integrity Metrics
-
-- **Alpha Observed**: 0.0008 (within acceptable bounds)
-- **Timing Jitter**: P95: 29.39ms, P99: 5.17ms
-- **Perturbation Norm**: 0.15 (stable measurement)
-- **Success Rate**: 100% verification pass rate
-
-### 🏆 Certification Levels
-
-- **Level 1**: Basic mathematical invariance verification
-- **Level 2**: Advanced adversarial resistance testing
-- **Level 3**: Complete cryptographic evidence chain
-- **Level 4**: Full compliance with regulatory alignment
+The framework is designed to ensure deterministic verification, cryptographic integrity, and non‑interference with AI systems under evaluation.
 
 ---
 
-*This safety framework is part of NovaFuse-GMI-VS Verification Standard*
+## Core Safety Principles
+
+1. **Mathematical Invariance**  
+   All verification processes preserve deterministic mathematical properties.
+
+2. **Cryptographic Integrity**  
+   SHA‑256 hash verification is applied to all verification components and outputs.
+
+3. **Evidence Chain**  
+   A complete, tamper‑evident audit trail is produced for every verification run.
+
+4. **Non‑Repudiation**  
+   Verification certificates are cryptographically signed.
+
+5. **Temporal Consistency**  
+   All verification results are timestamped and time‑ordered.
+
+---
+
+## Security Controls
+
+- **Hash Verification**  
+  Every script, artifact, and output file includes SHA‑256 integrity checks.
+
+- **SBOM Generation**  
+  Software Bill of Materials generation supports complete component traceability.
+
+- **Certificate Signing**  
+  All verification certificates include cryptographic signatures.
+
+- **Access Control**  
+  Verification does not access, modify, or control AI models.
+
+- **Data Privacy**  
+  No training data inspection, prompt access, or policy modification occurs.
+
+---
+
+## Compliance Standards
+
+GMI‑VS aligns with the following security and assurance frameworks:
+
+- **ISO/IEC 27001**  
+  Information security management principles.
+
+- **NIST SP 800‑171**  
+  Security and privacy control guidance.
+
+- **Common Criteria**  
+  Equivalent to EAL2+ verification rigor.
+
+- **SOC 2 Type III**  
+  Cryptographic module and security control requirements.
+
+---
+
+## Threat Model
+
+GMI‑VS is designed to detect and resist:
+
+- **Boundary Violations**  
+  Mathematical boundary enforcement failures.
+
+- **Flux Injection Attacks**  
+  State transition manipulation attempts.
+
+- **Convergence Disruption**  
+  Stability degradation under perturbation.
+
