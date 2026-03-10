@@ -107,9 +107,6 @@ jobs:
           
           ---
           *Generated automatically by GMI-VS verification workflow*
-        files: |
-          GMI_Verification_Standard_Export/GMI_Verification_Package/artifacts/*
-          GMI_Verification_Standard_Export/GMI_Verification_Package/certificates/*
         draft: false
         prerelease: false
         generate_release_notes: true
